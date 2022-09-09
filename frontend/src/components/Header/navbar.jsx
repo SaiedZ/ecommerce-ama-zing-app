@@ -1,5 +1,7 @@
 import Container from 'react-bootstrap/Container'
 
+import logo from '../../resources/logo.png'
+
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
@@ -8,7 +10,9 @@ function NavbarCustom() {
     return (
         <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
             <Container fluid>
-                <Navbar.Brand href="/">Ama-Zing</Navbar.Brand>
+                <Navbar.Brand href="/">
+                    <img src={logo} alt="Ama-Zing" style={{ height: 30 }} />
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
