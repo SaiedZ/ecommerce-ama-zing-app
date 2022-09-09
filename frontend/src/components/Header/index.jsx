@@ -1,5 +1,7 @@
+import NavScroll from './navbar'
+
 function Header() {
-    return <div>Header</div>
+    return <NavScroll />
 }
 
 export default Header
