@@ -1,7 +1,11 @@
-import NavScroll from './navbar'
+import NavbarCustom from './navbar'
 
 function Header() {
-    return <NavScroll />
+    return (
+        <header>
+            <NavbarCustom />
+        </header>
+    )
 }
 
 export default Header
