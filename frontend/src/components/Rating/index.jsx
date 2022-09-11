@@ -8,7 +8,7 @@ const RatingDiv = styled.div`
     }
 `
 
-export default function Rating({ value, text, color }) {
+export default function Rating({ value, text, color = '#f8e825' }) {
     const i = 5
 
     return (
