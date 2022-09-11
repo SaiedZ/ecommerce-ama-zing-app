@@ -1,30 +1,38 @@
+import { LinkContainer } from 'react-router-bootstrap'
+
 import Container from 'react-bootstrap/Container'
-
-import logo from '../../resources/logo.png'
-
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+
+import logo from '../../resources/logo.png'
 
 function NavbarCustom() {
     return (
         <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
             <Container fluid>
-                <Navbar.Brand href="/">
-                    <img src={logo} alt="Ama-Zing" style={{ height: 25 }} />
-                </Navbar.Brand>
+                <LinkContainer to="/">
+                    <Navbar.Brand>
+                        <img src={logo} alt="Ama-Zing" style={{ height: 25 }} />
+                    </Navbar.Brand>
+                </LinkContainer>
+
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
                         className="me-auto my-2 my-lg-0"
                         style={{ maxHeight: '100px' }}
                         navbarScroll>
-                        <Nav.Link href="#action1">
-                            <i className="fa-solid fa-cart-shopping pe-1"></i>Cart
-                        </Nav.Link>
-                        <Nav.Link href="#action2">
-                            <i className="fa-solid fa-user pe-1"></i>Login
-                        </Nav.Link>
+                        <LinkContainer to="/cart">
+                            <Nav.Link>
+                                <i className="fa-solid fa-cart-shopping pe-1"></i>Cart
+                            </Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer to="/login">
+                            <Nav.Link>
+                                <i className="fa-solid fa-user pe-1"></i>Login
+                            </Nav.Link>
+                        </LinkContainer>
                         <NavDropdown title="Link" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
