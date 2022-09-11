@@ -4,10 +4,12 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 
 import './utils/style/bootstrap.min.css'
+import GlobalStyle from './utils/style/globalStyles'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <React.StrictMode>
+        <GlobalStyle />
         <App />
     </React.StrictMode>
 )
