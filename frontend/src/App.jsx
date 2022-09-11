@@ -1,8 +1,11 @@
+import React from 'react'
+
 import { Container } from 'react-bootstrap'
 import styled from 'styled-components'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
+import HomePage from './pages/Home'
 
 const MainContainer = styled.main`
     min-height: 80vh;
@@ -10,15 +13,15 @@ const MainContainer = styled.main`
 
 function App() {
     return (
-        <div>
+        <React.StrictMode>
             <Header />
             <MainContainer className="py-3">
                 <Container>
-                    <h1>Welcome</h1>
+                    <HomePage />
                 </Container>
             </MainContainer>
             <Footer />
-        </div>
+        </React.StrictMode>
     )
 }
 

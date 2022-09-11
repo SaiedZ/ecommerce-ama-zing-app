@@ -11,7 +11,7 @@ function NavbarCustom() {
         <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
             <Container fluid>
                 <Navbar.Brand href="/">
-                    <img src={logo} alt="Ama-Zing" style={{ height: 30 }} />
+                    <img src={logo} alt="Ama-Zing" style={{ height: 25 }} />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
