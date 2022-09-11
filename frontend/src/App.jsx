@@ -2,10 +2,13 @@ import React from 'react'
 
 import { Container } from 'react-bootstrap'
 import styled from 'styled-components'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import HomePage from './pages/Home'
+import ProductPage from './pages/Product'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
-import HomePage from './pages/Home'
 
 const MainContainer = styled.main`
     min-height: 80vh;
@@ -13,15 +16,18 @@ const MainContainer = styled.main`
 
 function App() {
     return (
-        <React.StrictMode>
+        <BrowserRouter>
             <Header />
             <MainContainer className="py-3">
                 <Container>
-                    <HomePage />
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/product/:id" element={<ProductPage />} />
+                    </Routes>
                 </Container>
             </MainContainer>
             <Footer />
-        </React.StrictMode>
+        </BrowserRouter>
     )
 }
 
