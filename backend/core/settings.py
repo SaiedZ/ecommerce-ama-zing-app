@@ -39,11 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'corsheaders',
 
     'shop.apps.ShopConfig',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -125,3 +128,23 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+"""
+
+Adding CORS headers allows your resources to be accessed
+on other domains. It’s important you understand the implications
+before adding the headers, since you could be unintentionally
+opening up your site’s private data to others.
+
+Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism
+that allows a server to indicate any origins (domain, scheme, or port)
+other than its own from which a browser should permit loading resources.
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+"""
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
