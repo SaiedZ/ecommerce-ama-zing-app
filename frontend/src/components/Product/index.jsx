@@ -15,15 +15,19 @@ function Product({ product }) {
                     <Card.Title as="div">
                         <strong>{product.name}</strong>
                     </Card.Title>
-                    <Card.Text className="my-3" as="div">
+                </Link>
+
+                <Card.Text className="my-3" as="div">
+                    <div className="my-3">
                         <Rating
                             value={product.rating}
                             text={`${product.numReviews} reviews`}
                             color={'#f8e825'}
                         />
-                    </Card.Text>
-                    <Card.Text as="h3">${product.price}</Card.Text>
-                </Link>
+                    </div>
+                </Card.Text>
+
+                <Card.Text as="h3">${product.price}</Card.Text>
             </Card.Body>
         </Card>
     )
