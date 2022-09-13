@@ -12,25 +12,24 @@ import { cartReducer } from './reducers/cartReducers'
 //     productList: productListReducer
 // })
 
-const carItemsFromStorage = localStorage.getItem('cartItems')
+const cartItemsFromStorage = localStorage.getItem('cartItems')
     ? JSON.parse(localStorage.getItem('cartItems'))
     : []
 
-const initialState = {
-    cart: { cartItems: carItemsFromStorage }
+const preloadedState = {
+    cart: {
+        cartItems: cartItemsFromStorage
+    }
 }
-
 // const middleware = [thunk]
 
-const store = configureStore(
-    {
-        reducer: {
-            productList: productListReducer,
-            productDetails: productDetailsReducer,
-            cart: cartReducer
-        }
+const store = configureStore({
+    reducer: {
+        productList: productListReducer,
+        productDetails: productDetailsReducer,
+        cart: cartReducer
     },
-    initialState
-)
+    preloadedState
+})
 
 export default store
