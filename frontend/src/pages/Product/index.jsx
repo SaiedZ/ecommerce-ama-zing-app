@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { Link, useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 
 import { Row, Col, Image, ListGroup, Button, Card, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
