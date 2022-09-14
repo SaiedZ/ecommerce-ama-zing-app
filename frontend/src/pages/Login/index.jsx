@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { Link, useNavigate, useLocation, Navigate } from 'react-router-dom'
 
 import { Row, Col, Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,11 +15,12 @@ function LoginPage() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    const dispatch = useDispatch()
     const location = useLocation()
 
-    const redirect = location.search ? location.search.split('=')[1] : '/'
+    const redirect = location.search ? '/' + location.search.split('=')[1] : '/'
 
     const userLogin = useSelector((state) => state.userLogin)
     const { error, loading, userInfo } = userLogin
