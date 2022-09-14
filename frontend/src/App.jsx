@@ -11,6 +11,7 @@ import LoginPage from './pages/Login'
 import RegisterPage from './pages/Register'
 import ProfilePage from './pages/Profile'
 import ShippingPage from './pages/Shipping'
+import PaymentPage from './pages/Payment'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -32,6 +33,7 @@ function App() {
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/product/:productId" element={<ProductPage />} />
                         <Route path="/shipping" element={<ShippingPage />} />
+                        <Route path="/payment" element={<PaymentPage />} />
                         <Route path="/cart">
                             <Route index element={<CartPage />} />
                             <Route path=":id" element={<CartPage />} />
