@@ -7,7 +7,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { productListReducer, productDetailsReducer } from './reducers/productReducers'
 import { cartReducer } from './reducers/cartReducers'
-import { userLoginReducer, userRegisterReducer } from './reducers/userReducers'
+import { userLoginReducer, userRegisterReducer, userDetailsReducer } from './reducers/userReducers'
 // const reducer = combineReducers({
 //     productList: productListReducer
 // })
@@ -34,7 +34,8 @@ const store = configureStore({
         productDetails: productDetailsReducer,
         cart: cartReducer,
         userLogin: userLoginReducer,
-        userRegister: userRegisterReducer
+        userRegister: userRegisterReducer,
+        userDetails: userDetailsReducer
     },
     preloadedState
 })
