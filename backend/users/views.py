@@ -76,7 +76,6 @@ def getUserProfile(request):
     return Response(serializer.data)
 
 
-"""
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def updateUserProfile(request):
@@ -96,6 +95,7 @@ def updateUserProfile(request):
     return Response(serializer.data)
 
 
+"""
 @api_view(['GET'])
 @permission_classes([IsAdminUser])
 def getUserById(request, pk):
