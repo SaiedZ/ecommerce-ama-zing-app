@@ -66,3 +66,34 @@ export const logout = () => (dispatch) => {
     // dispatch({ type: ORDER_LIST_MY_RESET })
     // dispatch({ type: USER_LIST_RESET })
 }
+
+export const register = (email, name, password) => async (dispatch) => {
+    try {
+        dispatch({ type: USER_REGISTER_REQUEST })
+        const config = {
+            headers: {
+                'content-type': 'application/json'
+            }
+        }
+
+        const { data } = await axios.post(
+            '/api/users/register/',
+            { username: email, password: password, name: name },
+            config
+        )
+        dispatch({
+            type: USER_REGISTER_SUCCESS,
+            payload: data
+        })
+
+        localStorage.setItem('userInfo', JSON.stringify(data))
+    } catch (error) {
+        dispatch({
+            type: USER_REGISTER_FAIL,
+            payload:
+                error.response && error.response.data.detail
+                    ? error.response.data.detail
+                    : error.message
+        })
+    }
+}
