@@ -74,7 +74,7 @@ function LoginPage() {
                 <Col>
                     New Customer?{' '}
                     <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
-                        Register
+                        Sign In
                     </Link>
                 </Col>
             </Row>
