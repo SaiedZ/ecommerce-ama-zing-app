@@ -10,6 +10,7 @@ import CartPage from './pages/Cart'
 import LoginPage from './pages/Login'
 import RegisterPage from './pages/Register'
 import ProfilePage from './pages/Profile'
+import ShippingPage from './pages/Shipping'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -30,6 +31,7 @@ function App() {
                         <Route path="/register" element={<RegisterPage />} />
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/product/:productId" element={<ProductPage />} />
+                        <Route path="/shipping" element={<ShippingPage />} />
                         <Route path="/cart">
                             <Route index element={<CartPage />} />
                             <Route path=":id" element={<CartPage />} />
