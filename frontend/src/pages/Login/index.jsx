@@ -44,7 +44,7 @@ function LoginPage() {
 
             <Form onSubmit={submitHandler}>
                 <Form.Group className="mb-3" controlId="email">
-                    <Form.Label>Email Adress</Form.Label>
+                    <Form.Label>Email Address</Form.Label>
 
                     <Form.Control
                         type="email"
