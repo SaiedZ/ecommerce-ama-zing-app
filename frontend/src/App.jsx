@@ -9,6 +9,7 @@ import ProductPage from './pages/Product'
 import CartPage from './pages/Cart'
 import LoginPage from './pages/Login'
 import RegisterPage from './pages/Register'
+import ProfilePage from './pages/Profile'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -27,6 +28,7 @@ function App() {
                         <Route path="/" element={<HomePage />} />
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/register" element={<RegisterPage />} />
+                        <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/product/:productId" element={<ProductPage />} />
                         <Route path="/cart">
                             <Route index element={<CartPage />} />
