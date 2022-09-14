@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import FormContainer from '../../components/FormContainer'
 import CheckoutSteps from '../../components/CheckoutSteps'
-// import { savePaymentMethod } from '../../redux/actions/cartActions'
+import { savePaymentMethod } from '../../redux/actions/cartActions'
 
 function PaymentPage() {
     const navigate = useNavigate()
@@ -28,7 +28,7 @@ function PaymentPage() {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        // dispatch(savePaymentMethod(paymentMethod))
+        dispatch(savePaymentMethod(paymentMethod))
         navigate('/placeorder')
     }
 
@@ -41,12 +41,21 @@ function PaymentPage() {
                     <Form.Label as="legend">Select Method</Form.Label>
                     <Col>
                         <Form.Check
+                            inline
                             type="radio"
-                            label="PayPal or Credit Card"
+                            label="PayPal"
                             id="paypal"
                             name="paymentMethod"
                             checked
                             onChange={(e) => setPaymentMethod(e.target.value)}></Form.Check>
+                        <Form.Check
+                            inline
+                            disabled
+                            type="radio"
+                            label="Credit Card"
+                            id="Credit Card"
+                            name="paymentMethod"
+                        />
                     </Col>
                 </Form.Group>
 
