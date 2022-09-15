@@ -43,6 +43,8 @@ class OrderSerializer(serializers.ModelSerializer):
     shippingAddress = serializers.SerializerMethodField(read_only=True)
     user = serializers.SerializerMethodField(read_only=True)
 
+    # paidAt = serializers.DateTimeField(format='%Y-%m-%dT%H:%M')
+
     class Meta:
         model = Order
         fields = '__all__'
