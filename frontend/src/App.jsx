@@ -14,6 +14,7 @@ import ShippingPage from './pages/Shipping'
 import PaymentPage from './pages/Payment'
 import PlaceOrderPage from './pages/PlaceOrder'
 import OrderPage from './pages/Order'
+import UserListPage from './pages/UserList'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -42,6 +43,8 @@ function App() {
                             <Route index element={<CartPage />} />
                             <Route path=":id" element={<CartPage />} />
                         </Route>
+
+                        <Route path="/admin/userlist" element={<UserListPage />} />
                     </Routes>
                 </Container>
             </MainContainer>
