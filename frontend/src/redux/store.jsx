@@ -7,7 +7,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { productListReducer, productDetailsReducer } from './reducers/productReducers'
 import { cartReducer } from './reducers/cartReducers'
-import { orderCreateReducer, orderDetailsReducer } from './reducers/orderReducers'
+import { orderCreateReducer, orderDetailsReducer, orderPayReducer } from './reducers/orderReducers'
 import {
     userLoginReducer,
     userRegisterReducer,
@@ -54,7 +54,8 @@ const store = configureStore({
         userDetails: userDetailsReducer,
         userUpdateProfile: userUpdateProfileReducer,
         orderCreate: orderCreateReducer,
-        orderDetails: orderDetailsReducer
+        orderDetails: orderDetailsReducer,
+        orderPay: orderPayReducer
     },
     preloadedState
 })
