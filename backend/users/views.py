@@ -111,10 +111,8 @@ def getUserById(request, pk):
     return Response(serializer.data)
 
 
-"""
-
 @api_view(['PUT'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAdminUser])
 def updateUser(request, pk):
     user = User.objects.get(id=pk)
 
@@ -130,4 +128,3 @@ def updateUser(request, pk):
     serializer = UserSerializer(user, many=False)
 
     return Response(serializer.data)
-"""
