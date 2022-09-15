@@ -45,7 +45,6 @@ function PlaceOrderPage() {
     }, [success, navigate])
 
     const placeOrder = () => {
-        console.log('Order')
         dispatch(
             createOrder({
                 orderItems: cart.cartItems,
