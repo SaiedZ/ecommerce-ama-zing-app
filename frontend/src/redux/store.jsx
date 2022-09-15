@@ -18,7 +18,8 @@ import {
     userRegisterReducer,
     userDetailsReducer,
     userListReducer,
-    userUpdateProfileReducer
+    userUpdateProfileReducer,
+    userDeleteReducer
 } from './reducers/userReducers'
 // const reducer = combineReducers({
 //     productList: productListReducer
@@ -62,6 +63,7 @@ const store = configureStore({
         userDetails: userDetailsReducer,
         userUpdateProfile: userUpdateProfileReducer,
         userList: userListReducer,
+        userDelete: userDeleteReducer,
 
         orderCreate: orderCreateReducer,
         orderDetails: orderDetailsReducer,
