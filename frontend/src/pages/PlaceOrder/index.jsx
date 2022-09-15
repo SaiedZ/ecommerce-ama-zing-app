@@ -8,15 +8,14 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import CheckoutSteps from '../../components/CheckoutSteps'
 import Message from '../../components/Message'
-// import { createOrder } from '../../redux/actions/orderActions'
+import { createOrder } from '../../redux/actions/orderActions'
 import { ORDER_CREATE_RESET } from '../../redux/constants/orderConstants'
 
 function PlaceOrderPage() {
     const navigate = useNavigate()
-    let error = null
-    // const orderCreate = useSelector((state) => state.orderCreate)
+    const orderCreate = useSelector((state) => state.orderCreate)
 
-    // const { order, error, success } = orderCreate
+    const { order, error, success } = orderCreate
 
     const dispatch = useDispatch()
 
@@ -38,26 +37,26 @@ function PlaceOrderPage() {
         navigate('/payment')
     }
 
-    // useEffect(() => {
-    //     if (success) {
-    //         navigate(`/order/${order._id}`)
-    //         dispatch({ type: ORDER_CREATE_RESET })
-    //     }
-    // }, [success, history])
+    useEffect(() => {
+        if (success) {
+            navigate(`/order/${order._id}`)
+            dispatch({ type: ORDER_CREATE_RESET })
+        }
+    }, [success, navigate])
 
     const placeOrder = () => {
         console.log('Order')
-        // dispatch(
-        //     createOrder({
-        //         orderItems: cart.cartItems,
-        //         shippingAddress: cart.shippingAddress,
-        //         paymentMethod: cart.paymentMethod,
-        //         itemsPrice: cart.itemsPrice,
-        //         shippingPrice: cart.shippingPrice,
-        //         taxPrice: cart.taxPrice,
-        //         totalPrice: cart.totalPrice
-        //     })
-        // )
+        dispatch(
+            createOrder({
+                orderItems: cart.cartItems,
+                shippingAddress: cart.shippingAddress,
+                paymentMethod: cart.paymentMethod,
+                itemsPrice: cart.itemsPrice,
+                shippingPrice: cart.shippingPrice,
+                taxPrice: cart.taxPrice,
+                totalPrice: cart.totalPrice
+            })
+        )
     }
 
     return (
@@ -158,9 +157,11 @@ function PlaceOrderPage() {
                                 </Row>
                             </ListGroup.Item>
 
-                            <ListGroup.Item>
-                                {error && <Message variant="danger">{error}</Message>}
-                            </ListGroup.Item>
+                            {error && (
+                                <ListGroup.Item>
+                                    <Message variant="danger">{error}</Message>
+                                </ListGroup.Item>
+                            )}
 
                             <ListGroup.Item className="d-grid gap-2">
                                 <Button
