@@ -103,7 +103,6 @@ def deleteUser(request, pk):
     return Response('User was deleted')
 
 
-"""
 @api_view(['GET'])
 @permission_classes([IsAdminUser])
 def getUserById(request, pk):
@@ -111,6 +110,8 @@ def getUserById(request, pk):
     serializer = UserSerializer(user, many=False)
     return Response(serializer.data)
 
+
+"""
 
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
