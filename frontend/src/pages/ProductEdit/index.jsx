@@ -35,6 +35,9 @@ function ProductEditPage() {
     const productUpdate = useSelector((state) => state.productUpdate)
     const { error: errorUpdate, loading: loadingUpdate, success: successUpdate } = productUpdate
 
+    const userLogin = useSelector((state) => state.userLogin)
+    const { userInfo } = userLogin
+
     useEffect(() => {
         if (successUpdate) {
             dispatch({ type: PRODUCT_UPDATE_RESET })
@@ -68,6 +71,32 @@ function ProductEditPage() {
                 description
             })
         )
+    }
+
+    const uploadFileHandler = async (e) => {
+        const file = e.target.files[0]
+        const formData = new FormData()
+
+        formData.append('image', file)
+        formData.append('product_id', productId)
+
+        setUploading(true)
+
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    Authorization: `Bearer ${userInfo.token}`
+                }
+            }
+
+            const { data } = await axios.post('/api/products/upload/', formData, config)
+
+            setImage(data)
+            setUploading(false)
+        } catch (error) {
+            setUploading(false)
+        }
     }
 
     return (
@@ -106,17 +135,16 @@ function ProductEditPage() {
                         <Form.Group controlId="image" className="mb-4">
                             <Form.Label>Image</Form.Label>
                             <Form.Control
+                                disabled
                                 type="text"
                                 placeholder="Enter image"
                                 value={image}
                                 onChange={(e) => setImage(e.target.value)}></Form.Control>
-
-                            {/* <Form.File
-                                id="image-file"
-                                label="Choose File"
-                                custom
-                                onChange={uploadFileHandler}></Form.File>
-                            {uploading && <Loader />} */}
+                        </Form.Group>
+                        <Form.Group controlId="formFile" className="mb-4">
+                            <Form.Label>Choose Image</Form.Label>
+                            <Form.Control type="file" onChange={uploadFileHandler} />
+                            {uploading && <Loader />}
                         </Form.Group>
 
                         <Form.Group controlId="brand" className="mb-4">
