@@ -17,7 +17,8 @@ import {
     orderCreateReducer,
     orderDetailsReducer,
     orderPayReducer,
-    orderListMyReducer
+    orderListMyReducer,
+    orderListReducer
 } from './reducers/orderReducers'
 import {
     userLoginReducer,
@@ -79,7 +80,8 @@ const store = configureStore({
         orderCreate: orderCreateReducer,
         orderDetails: orderDetailsReducer,
         orderPay: orderPayReducer,
-        orderListMy: orderListMyReducer
+        orderListMy: orderListMyReducer,
+        orderList: orderListReducer
     },
     preloadedState
 })
