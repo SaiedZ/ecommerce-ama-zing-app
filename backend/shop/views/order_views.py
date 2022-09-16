@@ -3,7 +3,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
 from shop.models import Product, Order, OrderItem, ShippingAddress
-from shop.serializers import ProductSerializer, OrderSerializer
+from shop.serializers import OrderSerializer
 
 from rest_framework import status
 from datetime import datetime
@@ -118,7 +118,6 @@ def getOrders(request):
     return Response(serializer.data)
 
 
-"""
 @api_view(['PUT'])
 @permission_classes([IsAdminUser])
 def updateOrderToDelivered(request, pk):
@@ -129,4 +128,3 @@ def updateOrderToDelivered(request, pk):
     order.save()
 
     return Response('Order was delivered')
-"""
