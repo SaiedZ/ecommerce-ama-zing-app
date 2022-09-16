@@ -11,8 +11,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
 
-import { getOrderDetails, payOrder } from '../../redux/actions/orderActions'
-import { ORDER_PAY_RESET } from '../../redux/constants/orderConstants' //ORDER_DELIVER_RESET
+import { getOrderDetails, payOrder, deliverOrder } from '../../redux/actions/orderActions'
+import { ORDER_PAY_RESET, ORDER_DELIVER_RESET } from '../../redux/constants/orderConstants'
 
 function OrderPage() {
     let { orderId } = useParams()
@@ -29,8 +29,8 @@ function OrderPage() {
     const orderPay = useSelector((state) => state.orderPay)
     const { loading: loadingPay, success: successPay } = orderPay
 
-    // const orderDeliver = useSelector((state) => state.orderDeliver)
-    // const { loading: loadingDeliver, success: successDeliver } = orderDeliver
+    const orderDeliver = useSelector((state) => state.orderDeliver)
+    const { loading: loadingDeliver, success: successDeliver } = orderDeliver
 
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
@@ -58,12 +58,9 @@ function OrderPage() {
             navigate('/login')
         }
 
-        if (!order || successPay || order._id !== Number(orderId)) {
+        if (!order || successPay || order._id !== Number(orderId) || successDeliver) {
             dispatch({ type: ORDER_PAY_RESET })
-
-            //successDeliver
-
-            // dispatch({ type: ORDER_DELIVER_RESET })
+            dispatch({ type: ORDER_DELIVER_RESET })
 
             dispatch(getOrderDetails(orderId))
         } else if (!order.isPaid) {
@@ -73,15 +70,15 @@ function OrderPage() {
                 setSdkReady(true)
             }
         }
-    }, [dispatch, order, orderId, successPay]) // successDeliver
+    }, [dispatch, order, orderId, navigate, successPay, successDeliver])
 
     const successPaymentHandler = (paymentResult) => {
         dispatch(payOrder(orderId, paymentResult))
     }
 
-    // const deliverHandler = () => {
-    //     dispatch(deliverOrder(order))
-    // }
+    const deliverHandler = () => {
+        dispatch(deliverOrder(order))
+    }
 
     return loading ? (
         <Loader />
@@ -216,6 +213,17 @@ function OrderPage() {
                                             onSuccess={successPaymentHandler}
                                         />
                                     )}
+                                </ListGroup.Item>
+                            )}
+                            {loadingDeliver && <Loader />}
+                            {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+                                <ListGroup.Item className="d-grid gap-2">
+                                    <Button
+                                        type="button"
+                                        className="btn btn-block"
+                                        onClick={deliverHandler}>
+                                        Mark As Delivered
+                                    </Button>
                                 </ListGroup.Item>
                             )}
                         </ListGroup>
