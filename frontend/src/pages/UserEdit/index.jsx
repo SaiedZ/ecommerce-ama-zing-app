@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import FormContainer from '../../components/FormContainer'
-import { getUserDetails } from '../../redux/actions/userActions' //updateUser
+import { getUserDetails, updateUser } from '../../redux/actions/userActions'
 import { USER_UPDATE_RESET } from '../../redux/constants/userConstants'
 
 function UserEditPage() {
@@ -21,27 +21,27 @@ function UserEditPage() {
     const userDetails = useSelector((state) => state.userDetails)
     const { error, loading, user } = userDetails
 
-    // const userUpdate = useSelector((state) => state.userUpdate)
-    // const { error: errorUpdate, loading: loadingUpdate, success: successUpdate } = userUpdate
+    const userUpdate = useSelector((state) => state.userUpdate)
+    const { error: errorUpdate, loading: loadingUpdate, success: successUpdate } = userUpdate
 
-    // useEffect(() => {
-    //     if (successUpdate) {
-    //         dispatch({ type: USER_UPDATE_RESET })
-    //         history.push('/admin/userlist')
-    //     } else {
-    //         if (!user.name || user._id !== Number(userId)) {
-    //             dispatch(getUserDetails(userId))
-    //         } else {
-    //             setName(user.name)
-    //             setEmail(user.email)
-    //             setIsAdmin(user.isAdmin)
-    //         }
-    //     }
-    // }, [user, userId, successUpdate, history])
+    useEffect(() => {
+        if (successUpdate) {
+            dispatch({ type: USER_UPDATE_RESET })
+            navigate('/admin/userlist')
+        } else {
+            if (!user.name || user._id !== Number(userId)) {
+                dispatch(getUserDetails(userId))
+            } else {
+                setName(user.name)
+                setEmail(user.email)
+                setIsAdmin(user.isAdmin)
+            }
+        }
+    }, [user, userId, successUpdate, navigate])
 
     const submitHandler = (e) => {
         e.preventDefault()
-        //dispatch(updateUser({ _id: user._id, name, email, isAdmin }))
+        dispatch(updateUser({ _id: user._id, name, email, isAdmin }))
     }
 
     return (
@@ -50,8 +50,8 @@ function UserEditPage() {
 
             <FormContainer>
                 <h1>Edit User</h1>
-                {/* {loadingUpdate && <Loader />}
-                {errorUpdate && <Message variant="danger">{errorUpdate}</Message>} */}
+                {loadingUpdate && <Loader />}
+                {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
 
                 {loading ? (
                     <Loader />
