@@ -15,6 +15,7 @@ import PaymentPage from './pages/Payment'
 import PlaceOrderPage from './pages/PlaceOrder'
 import OrderPage from './pages/Order'
 import UserListPage from './pages/UserList'
+import UserEditPage from './pages/UserEdit'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -45,6 +46,7 @@ function App() {
                         </Route>
 
                         <Route path="/admin/userlist" element={<UserListPage />} />
+                        <Route path="/admin/user/:userId/edit" element={<UserEditPage />} />
                     </Routes>
                 </Container>
             </MainContainer>
