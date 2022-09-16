@@ -22,7 +22,9 @@ function OrderPage() {
     const [sdkReady, setSdkReady] = useState(false)
 
     const orderDetails = useSelector((state) => state.orderDetails)
-    const { order, error, loading } = { ...orderDetails }
+    const { order: orderState, error, loading } = orderDetails
+
+    const order = { ...orderState }
 
     const orderPay = useSelector((state) => state.orderPay)
     const { loading: loadingPay, success: successPay } = orderPay
