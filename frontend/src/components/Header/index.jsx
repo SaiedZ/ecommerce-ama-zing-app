@@ -6,6 +6,8 @@ import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap'
 
 import { logout } from '../../redux/actions/userActions'
 
+import SearchBox from '../SearchBox'
+
 import logo from '../../resources/logo.png'
 
 function Header() {
@@ -30,6 +32,7 @@ function Header() {
 
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
+                        <SearchBox />
                         <Nav
                             className="me-auto my-2 my-lg-0"
                             style={{ maxHeight: '100px' }}
