@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 // import Paginate from '../components/Paginate'
-import { listProducts } from '../../redux/actions/productActions' // deleteProduct, createProduct
+import { listProducts, deleteProduct, createProduct } from '../../redux/actions/productActions'
 import { PRODUCT_CREATE_RESET } from '../../redux/constants/productConstants'
 
 function ProductListScreen() {
@@ -16,16 +16,16 @@ function ProductListScreen() {
     const productList = useSelector((state) => state.productList)
     const { loading, error, products, pages, page } = productList
 
-    // const productDelete = useSelector((state) => state.productDelete)
-    // const { loading: loadingDelete, error: errorDelete, success: successDelete } = productDelete
+    const productDelete = useSelector((state) => state.productDelete)
+    const { loading: loadingDelete, error: errorDelete, success: successDelete } = productDelete
 
-    // const productCreate = useSelector((state) => state.productCreate)
-    // const {
-    //     loading: loadingCreate,
-    //     error: errorCreate,
-    //     success: successCreate,
-    //     product: createdProduct
-    // } = productCreate
+    const productCreate = useSelector((state) => state.productCreate)
+    const {
+        loading: loadingCreate,
+        error: errorCreate,
+        success: successCreate,
+        product: createdProduct
+    } = productCreate
 
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
@@ -37,24 +37,23 @@ function ProductListScreen() {
 
         if (!userInfo.isAdmin) {
             navigate('/login')
-            // }
-
-            // if (successCreate) {
-            //     navigate(`/admin/product/${createdProduct._id}/edit`)
-        } else {
-            //        dispatch(listProducts(keyword))
-            dispatch(listProducts())
         }
-    }, [dispatch, navigate, userInfo]) // keyword, successDelete, successCreate, createdProduct
+
+        if (successCreate) {
+            navigate(`/admin/product/${createdProduct._id}/edit`)
+        } else {
+            dispatch(listProducts()) // keyword
+        }
+    }, [dispatch, navigate, userInfo, successDelete, successCreate, createdProduct]) // keyword
 
     const deleteHandler = (id) => {
         if (window.confirm('Are you sure you want to delete this product?')) {
-            // dispatch(deleteProduct(id))
+            dispatch(deleteProduct(id))
         }
     }
 
     const createProductHandler = () => {
-        // dispatch(createProduct())
+        dispatch(createProduct())
     }
 
     return (
@@ -71,11 +70,11 @@ function ProductListScreen() {
                 </Col>
             </Row>
 
-            {/* {loadingDelete && <Loader />}
+            {loadingDelete && <Loader />}
             {errorDelete && <Message variant="danger">{errorDelete}</Message>}
 
             {loadingCreate && <Loader />}
-            {errorCreate && <Message variant="danger">{errorCreate}</Message>} */}
+            {errorCreate && <Message variant="danger">{errorCreate}</Message>}
 
             {loading ? (
                 <Loader />
