@@ -33,7 +33,7 @@ function OrderListPage() {
             ) : error ? (
                 <Message variant="danger">{error}</Message>
             ) : (
-                <Table striped bordered hover responsive className="table-sm">
+                <Table striped bordered hover responsive size="sm">
                     <thead>
                         <tr>
                             <th>ID</th>
