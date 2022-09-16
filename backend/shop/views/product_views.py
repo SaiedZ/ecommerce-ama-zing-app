@@ -48,8 +48,7 @@ def updateProduct(request, pk):
 
     data = request.data
 
-    product = Product.objects.get(_id=pk)
-    product.update(
+    Product.objects.filter(_id=pk).update(
         name=data['name'],
         price=data['price'],
         brand=data['brand'],
@@ -57,6 +56,7 @@ def updateProduct(request, pk):
         category=data['category'],
         description=data['description']
     )
+    product = Product.objects.get(_id=pk)
     serialized_product = ProductSerializer(product)
     return Response(serialized_product.data)
 
