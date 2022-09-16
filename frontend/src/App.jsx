@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import HomePage from './pages/Home'
 import ProductPage from './pages/Product'
+import ProductListPage from './pages/ProductList'
 import CartPage from './pages/Cart'
 import LoginPage from './pages/Login'
 import RegisterPage from './pages/Register'
@@ -47,6 +48,7 @@ function App() {
 
                         <Route path="/admin/userlist" element={<UserListPage />} />
                         <Route path="/admin/user/:userId/edit" element={<UserEditPage />} />
+                        <Route path="/admin/productlist" element={<ProductListPage />} />
                     </Routes>
                 </Container>
             </MainContainer>
