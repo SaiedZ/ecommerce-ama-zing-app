@@ -19,7 +19,8 @@ import {
     userDetailsReducer,
     userListReducer,
     userUpdateProfileReducer,
-    userDeleteReducer
+    userDeleteReducer,
+    userUpdateReducer
 } from './reducers/userReducers'
 // const reducer = combineReducers({
 //     productList: productListReducer
@@ -64,6 +65,7 @@ const store = configureStore({
         userUpdateProfile: userUpdateProfileReducer,
         userList: userListReducer,
         userDelete: userDeleteReducer,
+        userUpdate: userUpdateReducer,
 
         orderCreate: orderCreateReducer,
         orderDetails: orderDetailsReducer,
