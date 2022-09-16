@@ -118,11 +118,7 @@ def getOrders(request):
     return Response(serializer.data)
 
 
-
 """
-
-
-
 @api_view(['PUT'])
 @permission_classes([IsAdminUser])
 def updateOrderToDelivered(request, pk):
