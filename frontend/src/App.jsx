@@ -16,6 +16,7 @@ import ShippingPage from './pages/Shipping'
 import PaymentPage from './pages/Payment'
 import PlaceOrderPage from './pages/PlaceOrder'
 import OrderPage from './pages/Order'
+import OrderListPage from './pages/OrderList'
 import UserListPage from './pages/UserList'
 import UserEditPage from './pages/UserEdit'
 
@@ -54,6 +55,7 @@ function App() {
                             path="/admin/product/:productId/edit"
                             element={<ProductEditPage />}
                         />
+                        <Route path="/admin/orderlist" element={<OrderListPage />} />
                     </Routes>
                 </Container>
             </MainContainer>
