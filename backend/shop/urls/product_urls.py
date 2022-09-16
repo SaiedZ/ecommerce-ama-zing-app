@@ -3,7 +3,10 @@ from shop.views import product_views
 
 urlpatterns = [
     path('', product_views.get_products, name="products"),
+
     path('create/', product_views.createProduct, name="product-create"),
+    path('upload/', product_views.uploadImage, name="image-upload"),
+
     path('update/<str:pk>/',
          product_views.updateProduct,
          name="product-update"),
