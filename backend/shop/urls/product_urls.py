@@ -3,6 +3,7 @@ from shop.views import product_views
 
 urlpatterns = [
     path('', product_views.get_products, name="products"),
+    path('create/', product_views.createProduct, name="product-create"),
     path('delete/<str:pk>/',
          product_views.deleteProduct,
          name="product-delete"),
