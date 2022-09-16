@@ -5,7 +5,11 @@
 // import { composeWithDevTools } from 'redux-devtools-extension'
 
 import { configureStore } from '@reduxjs/toolkit'
-import { productListReducer, productDetailsReducer } from './reducers/productReducers'
+import {
+    productListReducer,
+    productDetailsReducer,
+    productDeleteReducer
+} from './reducers/productReducers'
 import { cartReducer } from './reducers/cartReducers'
 import {
     orderCreateReducer,
@@ -56,6 +60,7 @@ const store = configureStore({
     reducer: {
         productList: productListReducer,
         productDetails: productDetailsReducer,
+        productDelete: productDeleteReducer,
 
         cart: cartReducer,
 
