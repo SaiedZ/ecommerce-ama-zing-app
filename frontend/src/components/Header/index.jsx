@@ -16,7 +16,7 @@ const CartNumberSpan = styled.span`
     font-size: 0.6rem;
     position: relative;
     top: -10px;
-    right: -25px;
+    right: 53px;
     width: 15px;
     height: 15px;
     color: #fff;
@@ -50,19 +50,20 @@ function Header() {
                     </LinkContainer>
 
                     <Navbar.Toggle aria-controls="navbarScroll" />
-                    <Navbar.Collapse
-                        id="navbarScroll"
-                        className=" d-flex w-100 justify-content-end">
-                        <Nav className="my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
+                    <Navbar.Collapse id="navbarScroll">
+                        <Nav
+                            className="ms-auto me-md-3 my-2 my-lg-0"
+                            style={{ maxHeight: '100px' }}
+                            navbarScroll>
                             <LinkContainer
                                 to="/cart"
                                 className="my-auto position-relative d-inline-flex"
                                 aria-label="View your shopping cart">
                                 <Nav.Link>
+                                    <i className="fa-solid fa-cart-shopping pe-1"></i>Cart
                                     <CartNumberSpan className="cart-basket d-flex align-items-center justify-content-center">
                                         {cartNumberItems}
                                     </CartNumberSpan>
-                                    <i className="fa-solid fa-cart-shopping pe-1"></i>Cart
                                 </Nav.Link>
                             </LinkContainer>
 
@@ -100,8 +101,8 @@ function Header() {
                                     </LinkContainer>
                                 </NavDropdown>
                             )}
-                            <SearchBox />
                         </Nav>
+                        <SearchBox />
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
