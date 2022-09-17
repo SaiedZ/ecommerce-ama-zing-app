@@ -8,6 +8,7 @@ import { Row, Col } from 'react-bootstrap'
 import Product from '../../components/Product'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
+import Paginate from '../../components/Paginate'
 import { listProducts } from '../../redux/actions/productActions'
 
 function HomePage() {
@@ -18,7 +19,7 @@ function HomePage() {
     let keyword = location.search
 
     const productList = useSelector((state) => state.productList)
-    const { error, loading, products } = productList
+    const { error, loading, products, pages, page } = productList
 
     useEffect(() => {
         dispatch(listProducts(keyword))
@@ -32,13 +33,16 @@ function HomePage() {
             ) : error ? (
                 <Message variant="danger">{error}</Message>
             ) : (
-                <Row>
-                    {products.map((product) => (
-                        <Col sm={12} md={6} lg={4} xl={3} key={product._id}>
-                            <Product product={product} />
-                        </Col>
-                    ))}
-                </Row>
+                <div>
+                    <Row>
+                        {products.map((product) => (
+                            <Col sm={12} md={6} lg={4} xl={3} key={product._id}>
+                                <Product product={product} />
+                            </Col>
+                        ))}
+                    </Row>
+                    <Paginate pages={pages} page={page} keyword={keyword} />
+                </div>
             )}
         </div>
     )
