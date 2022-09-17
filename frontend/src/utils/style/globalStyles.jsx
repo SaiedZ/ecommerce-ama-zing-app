@@ -47,8 +47,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
   }
   @media (max-width: 900px) {
-    .carousel-caption h2 {
-      font-size: 2.5vw;
+    .carousel-caption h4 {
+      font-size: 3vw;
     }
   }
 `
