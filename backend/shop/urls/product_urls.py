@@ -10,7 +10,7 @@ urlpatterns = [
 
     path('<str:pk>/reviews/', product_views.createProductReview,
          name="create-review"),
-    # path('top/', views.getTopProducts, name='top-products'),
+    path('top/', product_views.getTopProducts, name='top-products'),
     path('<str:pk>/', product_views.get_product, name="product"),
 
 
