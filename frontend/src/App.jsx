@@ -32,7 +32,7 @@ function App() {
         <BrowserRouter>
             <Header />
             <MainContainer className="py-3">
-                <Container>
+                <Container fluid="lg">
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/login" element={<LoginPage />} />
