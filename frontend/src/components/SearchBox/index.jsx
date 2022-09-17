@@ -23,7 +23,7 @@ function SearchBox() {
             //     keyword: keyword
             // }
             // setSearchParams(params)
-            navigate(`/?keyword=${keyword}`) // go to the home page with the keyword in the url   &page=1
+            navigate(`/?keyword=${keyword}&page=1`) // go to the home page with the keyword in the url
         } else {
             // setSearchParams()
             navigate(location.pathname) // clean up the pathnam from any unused querysearch
