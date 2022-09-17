@@ -79,7 +79,7 @@ function Header() {
                                     </NavDropdown.Item>
                                 </NavDropdown>
                             ) : (
-                                <LinkContainer to="/login">
+                                <LinkContainer to="/login" className="my-auto">
                                     <Nav.Link>
                                         <i className="fa-solid fa-user pe-1"></i>Login
                                     </Nav.Link>
