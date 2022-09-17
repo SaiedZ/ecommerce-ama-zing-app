@@ -6,3 +6,9 @@ https://stackoverflow.com/questions/72068057/react-router-navigate-pathing
 [ ] admin dashboard
 [ ] multi pictures for product
 [ ] returning message succes when action if performed successfully?
+
+[ ] when editing a product the image is updating when uploading it, whithout waiting for theuser to submit the FROM
+
+[ ] verrifying that image the olde image is deleting when it's replaced
+
+[ ] serach product use Q to filter also in the description
