@@ -9,6 +9,8 @@ import Product from '../../components/Product'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import Paginate from '../../components/Paginate'
+import ProductCarousel from '../../components/ProductCarousel'
+
 import { listProducts } from '../../redux/actions/productActions'
 
 function HomePage() {
@@ -27,6 +29,7 @@ function HomePage() {
 
     return (
         <div>
+            {!keyword && <ProductCarousel />}
             <h1>Latest products</h1>
             {loading ? (
                 <Loader />
