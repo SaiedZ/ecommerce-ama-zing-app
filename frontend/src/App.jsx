@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Container } from 'react-bootstrap'
 import styled from 'styled-components'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Routes, Route } from 'react-router-dom'
 
 import HomePage from './pages/Home'
 import ProductPage from './pages/Product'
@@ -29,7 +29,7 @@ const MainContainer = styled.main`
 
 function App() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Header />
             <MainContainer className="py-3">
                 <Container fluid="lg">
@@ -60,7 +60,7 @@ function App() {
                 </Container>
             </MainContainer>
             <Footer />
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 

@@ -51,8 +51,9 @@ function Header() {
 
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
+                        <SearchBox />
                         <Nav
-                            className="ms-auto me-md-3 my-2 my-lg-0"
+                            className="ms-auto my-2 my-lg-0"
                             style={{ maxHeight: '100px' }}
                             navbarScroll>
                             <LinkContainer
@@ -102,7 +103,6 @@ function Header() {
                                 </NavDropdown>
                             )}
                         </Nav>
-                        <SearchBox />
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

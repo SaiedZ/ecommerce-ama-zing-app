@@ -12,3 +12,5 @@ https://stackoverflow.com/questions/72068057/react-router-navigate-pathing
 [ ] verrifying that image the olde image is deleting when it's replaced
 
 [ ] serach product use Q to filter also in the description
+
+[ ] add error template for unkown url
