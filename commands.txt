@@ -1,1 +1,5 @@
  python -m pip install -U pip
+
+ python -Xutf8 manage.py dumpdata > data.json
+
+python python -Xutf8 manage.py dumpdata > data.json
