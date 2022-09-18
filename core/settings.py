@@ -186,6 +186,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 USE_S3 = config('USE_S3', default=False, cast=bool)
 
 if USE_S3:
+    AWS_QUERYSTRING_AUTH = False
     # aws settings
     AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
