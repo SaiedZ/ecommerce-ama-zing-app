@@ -3,6 +3,7 @@
 
 *.pyc
 /backend/db.sqlite3
+db.sqlite3
 .DS_Store
 .env
 */settings/local.py
@@ -67,3 +68,4 @@ tmp_email/
 .direnv
 .envrc
 .tool-versions
+db.sqlite3
