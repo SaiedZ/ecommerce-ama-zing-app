@@ -12,4 +12,4 @@ COPY . /app/
 
 EXPOSE 8000
 
-CMD ["gunicorn", "--bind", ":8000", "your_project.wsgi:application"]
+CMD ["gunicorn", "--bind", ":8000", "core.wsgi:application"]
